@@ -1,0 +1,11 @@
+*.iml
+/LookA/.gradle/
+/LookA/.idea/
+/LookA/local.properties
+/LookA/.DS_Store
+/LookA/build
+/LookA/app/build/
+/LookA/app/src/test/
+/LookA/app/src/androidTest/
+/LookA/captures
+/LookA/.externalNativeBuild
