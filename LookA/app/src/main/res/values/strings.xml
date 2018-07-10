@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">LookA</string>
+    <string name="test1">test RxJava2+Retrofit2</string>
+    <string name="test2">test RxJava2+android-networking</string>
+    <string name="normal_get">normal get</string>
+    <string name="cache_get">cache get</string>
+    <string name="clear_cache">clear cache</string>
+    <string name="home_page">home page</string>
+    <string name="next_page">next page</string>
+    <string name="previous_page">Previous page</string>
 </resources>
