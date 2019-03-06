@@ -9,3 +9,30 @@
 /LookA/app/src/androidTest/
 /LookA/captures
 /LookA/.externalNativeBuild
+
+# Android related
+**/android/**/gradle-wrapper.jar
+**/android/.gradle
+**/android/captures/
+**/android/gradlew
+**/android/gradlew.bat
+**/android/local.properties
+**/android/**/GeneratedPluginRegistrant.java
+
+# Flutter/Dart/Pub related
+**/doc/api/
+/flutter_app/.idea/
+/flutter_app/.dart_tool/
+/flutter_app/.flutter-plugins
+/flutter_app/.packages
+/flutter_app/.pub-cache/
+/flutter_app/.pub/
+/flutter_app/build/
+/flutter_app/android/.idea/
+/flutter_app/android/.gradle/
+/flutter_app/android/local.properties
+/flutter_app/android/build
+/flutter_app/android/app/build/
+/flutter_app/android/app/src/test/
+/flutter_app/android/app/src/androidTest/
+
