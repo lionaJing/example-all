@@ -24,6 +24,7 @@ import 'package:flutter_app/use_animations/inkwell_hero.dart';
 import 'package:flutter_app/use_animations/masking.dart';
 import 'package:flutter_app/use_animations/offset_delay.dart';
 import 'package:flutter_app/use_animations/parenting.dart';
+import 'package:flutter_app/use_native_code/native_app.dart';
 
 /// 应用入口,展示为一个列表
 void main() => runApp(MyApp());
@@ -73,7 +74,8 @@ class ListExamplePage extends StatelessWidget {
       const UseBean("InkWell-Fero", "缓动动画"),
       const UseBean("Masking-Animation", "动画..."),
       const UseBean('OffsetDelayAnimation', '动画...'),
-      const UseBean('ParentingAnimation', '动画...')
+      const UseBean('ParentingAnimation', '动画...'),
+	  const UseBean('MethodChannel', '与原生交互..')
     ];
   }
 
@@ -229,6 +231,10 @@ class ContactsList extends StatelessWidget {
             context,
             MaterialPageRoute(
                 builder: (context) => ParentingAnimationWidget()));
+        break;
+      case 'MethodChannel':
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => NativeCodePage()));
         break;
       default:
         Fluttertoast.showToast(msg: "null", toastLength: Toast.LENGTH_SHORT);
