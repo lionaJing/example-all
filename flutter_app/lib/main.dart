@@ -6,6 +6,8 @@ import 'package:flutter_app/routes/route_home.dart';
 import 'package:flutter_app/json/load_json.dart';
 import 'package:flutter_app/shared_preferences/value.dart';
 import 'package:flutter_app/bottom_nav/navigator_tab.dart';
+import 'package:flutter_app/bottom_nav/navigator_2.dart';
+import 'package:flutter_app/bottom_nav/navigator_3.dart';
 import 'package:flutter_app/use_http/http_get.dart';
 import 'package:flutter_app/stepper/use_stepper.dart';
 import 'package:flutter_app/fonts/use_fonts.dart';
@@ -25,6 +27,11 @@ import 'package:flutter_app/use_animations/masking.dart';
 import 'package:flutter_app/use_animations/offset_delay.dart';
 import 'package:flutter_app/use_animations/parenting.dart';
 import 'package:flutter_app/use_native_code/native_app.dart';
+import 'package:flutter_app/use_redux/redux_home.dart';
+import 'package:flutter_app/use_list/list_1.dart';
+import 'package:flutter_app/use_list/list_2.dart';
+import 'package:flutter_app/use_list/list_3.dart';
+import 'package:flutter_app/use_slivers/slivers_main.dart';
 
 /// 应用入口,展示为一个列表
 void main() => runApp(MyApp());
@@ -59,6 +66,8 @@ class ListExamplePage extends StatelessWidget {
       const UseBean("JSON", "dart:convert"),
       const UseBean("shared Preferences", "数据持久化(sp)"),
       const UseBean("底部导航", "Navigation bottom"),
+      const UseBean("底部导航2", "...."),
+      const UseBean("底部导航3", "保存页面状态"),
       const UseBean("HTTP-GET", "http 网络请求"),
       const UseBean("stepper", "进度小组件"),
       const UseBean("customer-fonts", "自定义字体"),
@@ -75,7 +84,12 @@ class ListExamplePage extends StatelessWidget {
       const UseBean("Masking-Animation", "动画..."),
       const UseBean('OffsetDelayAnimation', '动画...'),
       const UseBean('ParentingAnimation', '动画...'),
-	  const UseBean('MethodChannel', '与原生交互..')
+      const UseBean('MethodChannel', '与原生交互..'),
+      const UseBean('Redux', '...'),
+      const UseBean('ListView1', 'ListTile'),
+      const UseBean('ListView2', 'ListView.builder'),
+      const UseBean('ListView3', 'ListView.separated'),
+      const UseBean('Slivers', 'CustomScrollView')
     ];
   }
 
@@ -97,19 +111,19 @@ class ContactsList extends StatelessWidget {
         ListTile.divideTiles(context: context, tiles: _getListData(context))
             .toList();
 
-    return new ListView(
+    return ListView(
       /// EdgeInsets 类似于 padding,
-      padding: new EdgeInsets.symmetric(vertical: 8.0),
+      padding: EdgeInsets.symmetric(vertical: 8.0),
       children: _buildContactsList,
     );
   }
 
   _getListData(BuildContext context) {
     return _useBean
-        .map((use) => new ListTile(
-              leading: new CircleAvatar(child: new Text(use.title[0])),
-              title: new Text(use.title),
-              subtitle: new Text(use.subTitle),
+        .map((use) => ListTile(
+              leading: CircleAvatar(child: Text(use.title[0])),
+              title: Text(use.title),
+              subtitle: Text(use.subTitle),
               onTap: () {
                 ///Fluttertoast.showToast(msg: use.title,toastLength: Toast.LENGTH_SHORT);
 //                final snackBar = new SnackBar(
@@ -151,6 +165,18 @@ class ContactsList extends StatelessWidget {
             context,
             MaterialPageRoute(
                 builder: (context) => NavigatorTabBottomHomePage()));
+        break;
+      case '底部导航2':
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => Navigator2Page()));
+        break;
+      case '底部导航3':
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => Navigator3Page()));
         break;
       case 'HTTP-GET':
         Navigator.push(
@@ -235,6 +261,26 @@ class ContactsList extends StatelessWidget {
       case 'MethodChannel':
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => NativeCodePage()));
+        break;
+      case 'Redux':
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => ReduxPage()));
+        break;
+      case 'ListView1':
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => ListView1Page()));
+        break;
+      case 'ListView2':
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => ListView2Page()));
+        break;
+      case 'ListView3':
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => ListView3Page()));
+        break;
+      case 'Slivers':
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => SliversPage()));
         break;
       default:
         Fluttertoast.showToast(msg: "null", toastLength: Toast.LENGTH_SHORT);
