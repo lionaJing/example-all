@@ -33,6 +33,7 @@ import 'package:flutter_app/use_list/list_1.dart';
 import 'package:flutter_app/use_list/list_2.dart';
 import 'package:flutter_app/use_list/list_3.dart';
 import 'package:flutter_app/use_list/wrap_main.dart';
+import 'package:flutter_app/use_list/opacity_main.dart';
 import 'package:flutter_app/use_slivers/slivers_main.dart';
 import 'package:flutter_app/use_slivers/slivers_1.dart';
 import 'package:flutter_app/use_slivers/slivers_2.dart';
@@ -95,6 +96,7 @@ class ListExamplePage extends StatelessWidget {
       const UseBean('ListView2', 'ListView.builder'),
       const UseBean('ListView3', 'ListView.separated'),
       const UseBean('Wrap', 'Wrap demo'),
+      const UseBean('Opacity', 'Opacity demo'),
       const UseBean('Slivers', 'SliverFixedExtentList+SliverGrid'),
       const UseBean('Slivers2', 'CustomScrollView+SliverAppBar'),
       const UseBean('Slivers3', 'SliverPersistentHeader')
@@ -303,6 +305,10 @@ class ContactsList extends StatelessWidget {
       case 'Slivers3':
         Navigator.push(context,
             MaterialPageRoute(builder: (context) => SliverAppBar2Page()));
+        break;
+      case 'Opacity':
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => OpacityPage()));
         break;
       default:
         Fluttertoast.showToast(msg: "null", toastLength: Toast.LENGTH_SHORT);

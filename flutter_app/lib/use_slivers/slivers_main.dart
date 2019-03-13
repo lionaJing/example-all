@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 //
 // Sliver家族的组件与 其他可滚动Widget区别？
 // 可滚动Widget都直接或间接包含一个Scrollable widget
-// Sliver不会包含Scrollable Widget，不包含滚动交互模型
+// Sliver不会包含Scrollable Widget，不包含滚动交互模型,可以对滚动实现更加细粒度的控制
 
 class SliversPage extends StatefulWidget {
   @override
@@ -39,6 +39,9 @@ class SliversState extends State<SliversPage> {
               //强制设置 item 的宽度(或高度,根据滑动方向判断)
               //这样做可以减少对列表高度的计算
               itemExtent: 50,
+              // delegate 用于提供子列表
+              // 创建方式1：delegate: SliverChildListDelegate(<Widget>[]),
+              // 创建方式2：SliverChildBuilderDelegate()
               delegate: SliverChildBuilderDelegate(
                 (context, index) {
                   return Container(
@@ -50,6 +53,10 @@ class SliversState extends State<SliversPage> {
                 childCount: 20,
               ),
             ),
+            // 指定列表数
+            // SliverGrid.count(crossAxisCount: null,<Widget>[])
+            // 指定列表最大宽度
+            // SliverGrid.extent(maxCrossAxisExtent: null,<Widget>[])
             SliverGrid(
               delegate: SliverChildBuilderDelegate(
                 (BuildContext context, int index) {
