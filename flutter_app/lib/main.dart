@@ -26,12 +26,16 @@ import 'package:flutter_app/use_animations/inkwell_hero.dart';
 import 'package:flutter_app/use_animations/masking.dart';
 import 'package:flutter_app/use_animations/offset_delay.dart';
 import 'package:flutter_app/use_animations/parenting.dart';
+import 'package:flutter_app/use_animations/animated_container_main.dart';
 import 'package:flutter_app/use_native_code/native_app.dart';
 import 'package:flutter_app/use_redux/redux_home.dart';
 import 'package:flutter_app/use_list/list_1.dart';
 import 'package:flutter_app/use_list/list_2.dart';
 import 'package:flutter_app/use_list/list_3.dart';
+import 'package:flutter_app/use_list/wrap_main.dart';
 import 'package:flutter_app/use_slivers/slivers_main.dart';
+import 'package:flutter_app/use_slivers/slivers_1.dart';
+import 'package:flutter_app/use_slivers/slivers_2.dart';
 
 /// 应用入口,展示为一个列表
 void main() => runApp(MyApp());
@@ -84,12 +88,16 @@ class ListExamplePage extends StatelessWidget {
       const UseBean("Masking-Animation", "动画..."),
       const UseBean('OffsetDelayAnimation', '动画...'),
       const UseBean('ParentingAnimation', '动画...'),
+      const UseBean('AnimatedContainer', '动画...'),
       const UseBean('MethodChannel', '与原生交互..'),
       const UseBean('Redux', '...'),
       const UseBean('ListView1', 'ListTile'),
       const UseBean('ListView2', 'ListView.builder'),
       const UseBean('ListView3', 'ListView.separated'),
-      const UseBean('Slivers', 'CustomScrollView')
+      const UseBean('Wrap', 'Wrap demo'),
+      const UseBean('Slivers', 'SliverFixedExtentList+SliverGrid'),
+      const UseBean('Slivers2', 'CustomScrollView+SliverAppBar'),
+      const UseBean('Slivers3', 'SliverPersistentHeader')
     ];
   }
 
@@ -168,15 +176,11 @@ class ContactsList extends StatelessWidget {
         break;
       case '底部导航2':
         Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => Navigator2Page()));
+            context, MaterialPageRoute(builder: (context) => Navigator2Page()));
         break;
       case '底部导航3':
         Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => Navigator3Page()));
+            context, MaterialPageRoute(builder: (context) => Navigator3Page()));
         break;
       case 'HTTP-GET':
         Navigator.push(
@@ -258,6 +262,12 @@ class ContactsList extends StatelessWidget {
             MaterialPageRoute(
                 builder: (context) => ParentingAnimationWidget()));
         break;
+      case 'AnimatedContainer':
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => AnimatedContainerPage()));
+        break;
       case 'MethodChannel':
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => NativeCodePage()));
@@ -278,9 +288,21 @@ class ContactsList extends StatelessWidget {
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => ListView3Page()));
         break;
+      case 'Wrap':
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => WrapPage()));
+        break;
       case 'Slivers':
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => SliversPage()));
+        break;
+      case 'Slivers2':
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => SliverAppBarPage()));
+        break;
+      case 'Slivers3':
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => SliverAppBar2Page()));
         break;
       default:
         Fluttertoast.showToast(msg: "null", toastLength: Toast.LENGTH_SHORT);
