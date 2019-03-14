@@ -2,7 +2,9 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/json/user.dart';
 
-/// 加载 json
+// 加载 json
+// 分为好几种情况
+// https://medium.com/flutter-community/parsing-complex-json-in-flutter-747c46655f51
 
 class JsonPage extends StatefulWidget {
   @override

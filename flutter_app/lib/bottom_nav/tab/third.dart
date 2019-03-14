@@ -1,23 +1,48 @@
 import 'package:flutter/material.dart';
 
-class ThirdTab extends StatelessWidget {
+//keep-live
+class ThirdTab extends StatefulWidget {
+  @override
+  ThirdTabState createState() => ThirdTabState();
+}
+
+class ThirdTabState extends State<ThirdTab> with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
+
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
+    return Scaffold(
       backgroundColor: Colors.orange,
-      body: new Container(
-        child: new Center(
-          child: new Column(
-            // center the children
+      body: Container(
+        child: Center(
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              Text(
+                'keep alive 保持状态',
+                style: TextStyle(color: Colors.white),
+              ),
               new Text(
-                "Third Tab",
-                style: new TextStyle(color: Colors.white),
-              )
+                '$_counter',
+                style: Theme.of(context).textTheme.display1,
+              ),
             ],
           ),
         ),
+      ),
+      floatingActionButton: new FloatingActionButton(
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: new Icon(Icons.add),
       ),
     );
   }
