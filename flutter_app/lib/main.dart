@@ -34,6 +34,9 @@ import 'package:flutter_app/use_list/list_2.dart';
 import 'package:flutter_app/use_list/list_3.dart';
 import 'package:flutter_app/use_list/wrap_main.dart';
 import 'package:flutter_app/use_list/opacity_main.dart';
+import 'package:flutter_app/use_list/future_builder_main.dart';
+import 'package:flutter_app/use_list/table_main.dart';
+import 'package:flutter_app/use_list/clip_rect_main.dart';
 import 'package:flutter_app/use_slivers/slivers_main.dart';
 import 'package:flutter_app/use_slivers/slivers_1.dart';
 import 'package:flutter_app/use_slivers/slivers_2.dart';
@@ -99,7 +102,10 @@ class ListExamplePage extends StatelessWidget {
       const UseBean('Opacity', 'Opacity demo'),
       const UseBean('Slivers', 'SliverFixedExtentList+SliverGrid'),
       const UseBean('Slivers2', 'CustomScrollView+SliverAppBar'),
-      const UseBean('Slivers3', 'SliverPersistentHeader')
+      const UseBean('Slivers3', 'SliverPersistentHeader'),
+      const UseBean('FutureBuilder', 'FutureBuilder加载'),
+      const UseBean('表格', 'Table + TableRow'),
+      const UseBean('ClipRect', '组件修剪')
     ];
   }
 
@@ -309,6 +315,18 @@ class ContactsList extends StatelessWidget {
       case 'Opacity':
         Navigator.push(context,
             MaterialPageRoute(builder: (context) => OpacityPage()));
+        break;
+      case 'FutureBuilder':
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => FutureBuilderPage()));
+        break;
+      case '表格':
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => TablePage()));
+        break;
+      case 'ClipRect':
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => ClipRectPage()));
         break;
       default:
         Fluttertoast.showToast(msg: "null", toastLength: Toast.LENGTH_SHORT);
