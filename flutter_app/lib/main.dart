@@ -37,6 +37,8 @@ import 'package:flutter_app/use_list/opacity_main.dart';
 import 'package:flutter_app/use_list/future_builder_main.dart';
 import 'package:flutter_app/use_list/table_main.dart';
 import 'package:flutter_app/use_list/clip_rect_main.dart';
+import 'package:flutter_app/use_list/absorb_pointer_main.dart';
+import 'package:flutter_app/use_list/backdrop_filter.main.dart';
 import 'package:flutter_app/use_slivers/slivers_main.dart';
 import 'package:flutter_app/use_slivers/slivers_1.dart';
 import 'package:flutter_app/use_slivers/slivers_2.dart';
@@ -105,7 +107,9 @@ class ListExamplePage extends StatelessWidget {
       const UseBean('Slivers3', 'SliverPersistentHeader'),
       const UseBean('FutureBuilder', 'FutureBuilder加载'),
       const UseBean('表格', 'Table + TableRow'),
-      const UseBean('ClipRect', '组件修剪')
+      const UseBean('ClipRect', '组件修剪'),
+      const UseBean('AbsorbPointer', '管理子部件的点击事件(拦截)'),
+      const UseBean('BackdropFilter', '滤镜效果(高斯模糊)')
     ];
   }
 
@@ -327,6 +331,14 @@ class ContactsList extends StatelessWidget {
       case 'ClipRect':
         Navigator.push(context,
             MaterialPageRoute(builder: (context) => ClipRectPage()));
+        break;
+      case 'AbsorbPointer':
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => AbsorbPointerPage()));
+        break;
+      case 'BackdropFilter':
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => BackdropFilterPage()));
         break;
       default:
         Fluttertoast.showToast(msg: "null", toastLength: Toast.LENGTH_SHORT);
