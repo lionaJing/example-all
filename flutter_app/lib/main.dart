@@ -39,6 +39,8 @@ import 'package:flutter_app/use_list/table_main.dart';
 import 'package:flutter_app/use_list/clip_rect_main.dart';
 import 'package:flutter_app/use_list/absorb_pointer_main.dart';
 import 'package:flutter_app/use_list/backdrop_filter.main.dart';
+import 'package:flutter_app/use_list/swipe_dismiss_main.dart';
+import 'package:flutter_app/use_list/slide_back_main.dart';
 import 'package:flutter_app/use_slivers/slivers_main.dart';
 import 'package:flutter_app/use_slivers/slivers_1.dart';
 import 'package:flutter_app/use_slivers/slivers_2.dart';
@@ -109,7 +111,9 @@ class ListExamplePage extends StatelessWidget {
       const UseBean('表格', 'Table + TableRow'),
       const UseBean('ClipRect', '组件修剪'),
       const UseBean('AbsorbPointer', '管理子部件的点击事件(拦截)'),
-      const UseBean('BackdropFilter', '滤镜效果(高斯模糊)')
+      const UseBean('BackdropFilter', '滤镜效果(高斯模糊)'),
+      const UseBean('SwipeDismiss', '类似滑动删除效果'),
+      const UseBean('右滑退出', 'CupertinoPageRoute')
     ];
   }
 
@@ -275,10 +279,8 @@ class ContactsList extends StatelessWidget {
                 builder: (context) => ParentingAnimationWidget()));
         break;
       case 'AnimatedContainer':
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => AnimatedContainerPage()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => AnimatedContainerPage()));
         break;
       case 'MethodChannel':
         Navigator.push(
@@ -317,20 +319,20 @@ class ContactsList extends StatelessWidget {
             MaterialPageRoute(builder: (context) => SliverAppBar2Page()));
         break;
       case 'Opacity':
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => OpacityPage()));
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => OpacityPage()));
         break;
       case 'FutureBuilder':
         Navigator.push(context,
             MaterialPageRoute(builder: (context) => FutureBuilderPage()));
         break;
       case '表格':
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => TablePage()));
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => TablePage()));
         break;
       case 'ClipRect':
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => ClipRectPage()));
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => ClipRectPage()));
         break;
       case 'AbsorbPointer':
         Navigator.push(context,
@@ -339,6 +341,14 @@ class ContactsList extends StatelessWidget {
       case 'BackdropFilter':
         Navigator.push(context,
             MaterialPageRoute(builder: (context) => BackdropFilterPage()));
+        break;
+      case 'SwipeDismiss':
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => SwipeDismissPage()));
+        break;
+      case '右滑退出':
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => SlideBackPage()));
         break;
       default:
         Fluttertoast.showToast(msg: "null", toastLength: Toast.LENGTH_SHORT);
