@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:websocket="http://www.springframework.org/schema/websocket"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/mvc
+                           http://www.springframework.org/schema/mvc/spring-mvc.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/websocket
+		                   http://www.springframework.org/schema/websocket/spring-websocket.xsd">
+
+    <mvc:default-servlet-handler/>
+    <context:component-scan base-package="com.abc.controller"/>
+    <mvc:annotation-driven/>
+    <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/WEB-INF/views"/>
+        <property name="suffix" value=".html"/>
+    </bean>
+    <mvc:resources mapping="/static/**" location="/static/" cache-period="31536000"/>
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="utf-8"/>
+        <property name="maxUploadSize" value="104857600000"/>
+        <property name="maxInMemorySize" value="4096"/>
+    </bean>
+
+    <bean id="pathMatcher" class="org.springframework.util.AntPathMatcher">
+        <constructor-arg index="0" value="." />
+    </bean>
+
+    <bean id="myHandler" class="com.abc.config.WedSocketHandler"/>
+    <bean id="appChannelInterceptor" class="com.abc.interceptor.AppChannelInterceptor"/>
+
+    <websocket:message-broker application-destination-prefix="/chat,/myApp"
+                              user-destination-prefix="/user">
+        <websocket:stomp-endpoint path="/lemon" allowed-origins="*">
+
+            <websocket:handshake-handler ref="myHandler"/>
+            <websocket:handshake-interceptors>
+                <bean class="com.abc.interceptor.SessionAuthHandshakeInterceptor"/>
+            </websocket:handshake-interceptors>
+
+            <websocket:sockjs/>
+        </websocket:stomp-endpoint>
+        <websocket:simple-broker prefix="/errors,/getMessage,/getResource,/queue,/control"/>
+        <websocket:client-inbound-channel>
+            <websocket:interceptors>
+                <ref bean="appChannelInterceptor"/>
+            </websocket:interceptors>
+        </websocket:client-inbound-channel>
+    </websocket:message-broker>
+
+</beans>

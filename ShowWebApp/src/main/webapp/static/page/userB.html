@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户B</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-3">
+    <h1 class="mb-3">用户 B</h1>
+    <textarea id="textId" class="form-control" rows="3" placeholder="输入 message"></textarea>
+    <button id="btnId" type="button" class="btn btn-primary mt-3 mb-3">推送给 User A</button>
+    <div id="progressId" class="progress mb-3" style="height: 24px;display: none;">
+        <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" style="width:100%;">
+            加载中...
+        </div>
+    </div>
+    <div class="d-flex text-white" style="text-align: center;">
+        <div class="p-2 flex-fill bg-warning"  style="width: 50%;">
+            <ul class="list-group">
+                <li class="list-group-item bg-warning" style="font-weight: bold;border: 0px;padding: 5px;">推送历史</li>
+            </ul>
+        </div>
+        <div class="p-2 flex-fill bg-success"  style="width: 50%;">
+            <ul class="list-group">
+                <li class="list-group-item bg-success" style="font-weight: bold;border: 0px;padding: 5px;">接收历史</li>
+            </ul>
+        </div>
+    </div>
+    <div class="d-flex" style="text-align: center;">
+        <div class="p-2 flex-fill"  style="width: 50%;">
+            <ul id="listLId" class="list-group" style="height: 300px;overflow: overlay;">
+            </ul>
+        </div>
+        <div class="p-2 flex-fill"  style="width: 50%;">
+            <ul id="listRId" class="list-group" style="height: 300px;overflow: overlay;">
+            </ul>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">提示</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div id="connectMsgId" class="modal-body">
+                    连接失败
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<script src="js/sockjs-0.3.4.js"></script>
+<script src="js/stomp.js"></script>
+<script src="userB.js"></script>
+</html>

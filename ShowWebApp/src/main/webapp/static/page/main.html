@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>推送控制器</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-3">
+    <h1 class="mb-3">控制器</h1>
+    <p>通过登录用户名确定被推送(控制对象)</p>
+    <dl>
+        <dt>userA</dt>
+        <dd>- 登录名: userA</dd>
+    </dl>
+    <textarea id="textId" class="form-control" rows="3" placeholder="输入 message"></textarea>
+    <button id="btnAId" type="button" class="btn btn-primary mt-3 mb-3">控制 userA 按钮点击</button>
+    <button id="btnAllId" type="button" class="btn btn-primary mt-3 mb-3">给所有用户发送消息</button>
+</div>
+</body>
+<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<script src="js/sockjs-0.3.4.js"></script>
+<script src="js/stomp.js"></script>
+<script src="main.js"></script>
+</html>
