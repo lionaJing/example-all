@@ -1,56 +1,62 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:flutter_app/drop_down.dart';
-import 'package:flutter_app/grid_layout/main.dart';
-import 'package:flutter_app/routes/route_home.dart';
-import 'package:flutter_app/json/load_json.dart';
-import 'package:flutter_app/shared_preferences/value.dart';
-import 'package:flutter_app/bottom_nav/navigator_tab.dart';
-import 'package:flutter_app/bottom_nav/navigator_2.dart';
-import 'package:flutter_app/bottom_nav/navigator_3.dart';
-import 'package:flutter_app/use_http/http_get.dart';
-import 'package:flutter_app/stepper/use_stepper.dart';
-import 'package:flutter_app/fonts/use_fonts.dart';
-import 'package:flutter_app/drawer_nav/navgiation_drawer.dart';
-import 'package:flutter_app/use_expansion/expansion.dart';
-import 'package:flutter_app/use_scoped_model/counter_demo/counter.dart';
-import 'package:flutter_app/use_scoped_model/counter_demo/counter_sync.dart';
 import 'package:scoped_model/scoped_model.dart';
-import 'package:flutter_app/use_scoped_model/my_cart_demo/models/cart_model.dart';
-import 'package:flutter_app/use_scoped_model/my_cart_demo/cart_home.dart';
-import 'package:flutter_app/go_state/use_state/home_state.dart';
-import 'package:flutter_app/use_vanilla/vanilla_main.dart';
-import 'package:flutter_app/inherited_start/inherited_main.dart';
-import 'package:flutter_app/use_animations/easing_animation.dart';
-import 'package:flutter_app/use_animations/inkwell_hero.dart';
-import 'package:flutter_app/use_animations/masking.dart';
-import 'package:flutter_app/use_animations/offset_delay.dart';
-import 'package:flutter_app/use_animations/parenting.dart';
-import 'package:flutter_app/use_animations/animated_container_main.dart';
-import 'package:flutter_app/use_native_code/native_app.dart';
-import 'package:flutter_app/use_redux/redux_home.dart';
-import 'package:flutter_app/use_list/list_1.dart';
-import 'package:flutter_app/use_list/list_2.dart';
-import 'package:flutter_app/use_list/list_3.dart';
-import 'package:flutter_app/use_list/wrap_main.dart';
-import 'package:flutter_app/use_list/opacity_main.dart';
-import 'package:flutter_app/use_list/future_builder_main.dart';
-import 'package:flutter_app/use_list/table_main.dart';
-import 'package:flutter_app/use_list/clip_rect_main.dart';
-import 'package:flutter_app/use_list/absorb_pointer_main.dart';
-import 'package:flutter_app/use_list/backdrop_filter.main.dart';
-import 'package:flutter_app/use_list/swipe_dismiss_main.dart';
-import 'package:flutter_app/use_list/slide_back_main.dart';
-import 'package:flutter_app/use_slivers/slivers_main.dart';
-import 'package:flutter_app/use_slivers/slivers_1.dart';
-import 'package:flutter_app/use_slivers/slivers_2.dart';
 
-/// 应用入口,展示为一个列表
+import 'drop_down.dart';
+import 'grid_layout/main.dart';
+import 'routes/route_home.dart';
+import 'json/load_json.dart';
+import 'shared_preferences/value.dart';
+import 'bottom_nav/navigator_tab.dart';
+import 'bottom_nav/navigator_2.dart';
+import 'bottom_nav/navigator_3.dart';
+import 'use_http/http_get.dart';
+import 'stepper/use_stepper.dart';
+import 'fonts/use_fonts.dart';
+import 'drawer_nav/navgiation_drawer.dart';
+import 'use_expansion/expansion.dart';
+import 'use_scoped_model/counter_demo/counter.dart';
+import 'use_scoped_model/counter_demo/counter_sync.dart';
+import 'use_scoped_model/my_cart_demo/models/cart_model.dart';
+import 'use_scoped_model/my_cart_demo/cart_home.dart';
+import 'go_state/use_state/home_state.dart';
+import 'use_vanilla/vanilla_main.dart';
+import 'inherited_start/inherited_main.dart';
+import 'use_animations/easing_animation.dart';
+import 'use_animations/inkwell_hero.dart';
+import 'use_animations/masking.dart';
+import 'use_animations/offset_delay.dart';
+import 'use_animations/parenting.dart';
+import 'use_animations/animated_container_main.dart';
+import 'use_native_code/native_app.dart';
+import 'use_redux/redux_home.dart';
+import 'use_list/list_1.dart';
+import 'use_list/list_2.dart';
+import 'use_list/list_3.dart';
+import 'use_list/wrap_main.dart';
+import 'use_list/opacity_main.dart';
+import 'use_list/future_builder_main.dart';
+import 'use_list/table_main.dart';
+import 'use_list/clip_rect_main.dart';
+import 'use_list/absorb_pointer_main.dart';
+import 'use_list/backdrop_filter.main.dart';
+import 'use_list/swipe_dismiss_main.dart';
+import 'use_list/slide_back_main.dart';
+import 'use_list/aspectratio_main.dart';
+import 'use_list/stack.dart';
+import 'use_list/slider.dart';
+import 'use_slivers/slivers_main.dart';
+import 'use_slivers/slivers_1.dart';
+import 'use_slivers/slivers_2.dart';
+import 'use_canvas/canvas_1.dart';
+
+// 应用入口,展示为一个列表
+// 请忽略规范，此demo纯属学习
 void main() => runApp(MyApp());
 
-///void main() {
-///  runApp(MyApp());
-///}
+//void main() {
+//  runApp(MyApp());
+//}
 
 class MyApp extends StatelessWidget {
   @override
@@ -113,7 +119,11 @@ class ListExamplePage extends StatelessWidget {
       const UseBean('AbsorbPointer', '管理子部件的点击事件(拦截)'),
       const UseBean('BackdropFilter', '滤镜效果(高斯模糊)'),
       const UseBean('SwipeDismiss', '类似滑动删除效果'),
-      const UseBean('右滑退出', 'CupertinoPageRoute')
+      const UseBean('右滑退出', 'CupertinoPageRoute'),
+      const UseBean('绘画', 'Canvas + Paint'),
+      const UseBean('AspectRatio+Expanded', '指定宽高比和扩展'),
+      const UseBean('Stack', '堆叠布局'),
+	  const UseBean('Slider', 'seekBar')
     ];
   }
 
@@ -349,6 +359,22 @@ class ContactsList extends StatelessWidget {
       case '右滑退出':
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => SlideBackPage()));
+        break;
+      case '绘画':
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => Canvas1Page()));
+        break;
+      case 'AspectRatio+Expanded':
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => AspectRatioPage()));
+        break;
+      case 'Stack':
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => StackPage()));
+        break;
+      case 'Slider':
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => SliderPage()));
         break;
       default:
         Fluttertoast.showToast(msg: "null", toastLength: Toast.LENGTH_SHORT);
