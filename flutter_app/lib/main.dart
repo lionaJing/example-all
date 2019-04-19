@@ -45,6 +45,7 @@ import 'use_list/slide_back_main.dart';
 import 'use_list/aspectratio_main.dart';
 import 'use_list/stack.dart';
 import 'use_list/slider.dart';
+import 'use_list/offstage.dart';
 import 'use_slivers/slivers_main.dart';
 import 'use_slivers/slivers_1.dart';
 import 'use_slivers/slivers_2.dart';
@@ -62,7 +63,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      /// 取消 debug 小横幅(默认 true)
+      // 取消 debug 小横幅(默认 true)
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(title: Text('Welcome to Flutter')),
@@ -74,7 +75,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-/// 测试列表页面
+// 测试列表页面
 class ListExamplePage extends StatelessWidget {
   _buildList() {
     return <UseBean>[
@@ -109,7 +110,7 @@ class ListExamplePage extends StatelessWidget {
       const UseBean('ListView2', 'ListView.builder'),
       const UseBean('ListView3', 'ListView.separated'),
       const UseBean('Wrap', 'Wrap demo'),
-      const UseBean('Opacity', 'Opacity demo'),
+      const UseBean('Opacity', '控件隐藏但保留位置+动画'),
       const UseBean('Slivers', 'SliverFixedExtentList+SliverGrid'),
       const UseBean('Slivers2', 'CustomScrollView+SliverAppBar'),
       const UseBean('Slivers3', 'SliverPersistentHeader'),
@@ -123,7 +124,8 @@ class ListExamplePage extends StatelessWidget {
       const UseBean('绘画', 'Canvas + Paint'),
       const UseBean('AspectRatio+Expanded', '指定宽高比和扩展'),
       const UseBean('Stack', '堆叠布局'),
-	  const UseBean('Slider', 'seekBar')
+      const UseBean('Slider', 'seekBar'),
+      const UseBean('Offstage', '控件控件是否绘制')
     ];
   }
 
@@ -369,12 +371,16 @@ class ContactsList extends StatelessWidget {
             MaterialPageRoute(builder: (context) => AspectRatioPage()));
         break;
       case 'Stack':
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => StackPage()));
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => StackPage()));
         break;
       case 'Slider':
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => SliderPage()));
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => SliderPage()));
+        break;
+      case 'Offstage':
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => OffstagePage()));
         break;
       default:
         Fluttertoast.showToast(msg: "null", toastLength: Toast.LENGTH_SHORT);
